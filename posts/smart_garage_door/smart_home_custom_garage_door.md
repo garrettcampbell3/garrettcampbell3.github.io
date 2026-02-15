@@ -4,7 +4,7 @@ title: Smart Home & Custom Smart Garage Door Opener
 description: Documenting my journey building a custom smart garage door opener integrated with Home Assistant
 permalink: /smart-garage-door/
 date: 2025-12-29
-projectGitHub: https://github.com/gcampbell-msft/smart-garage-door-opener
+projectGitHub: https://github.com/garrettcampbell3/smart-garage-door-opener
 ---
 
 ## Introduction
