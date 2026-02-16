@@ -65,6 +65,44 @@
           height: 40px;
         }
       }
+      .github-links {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+        align-items: center;
+        margin-top: 1rem;
+      }
+      .github-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: rgba(255, 255, 255, 0.9);
+        text-decoration: none;
+        font-size: 0.95rem;
+        transition: color 0.2s, transform 0.2s;
+      }
+      .github-link:hover {
+        color: white;
+        transform: translateY(-2px);
+      }
+      .github-link img {
+        width: 24px;
+        height: 24px;
+        filter: brightness(0) invert(1);
+      }
+      @media (max-width: 768px) {
+        .github-links {
+          flex-direction: column;
+          gap: 0.75rem;
+        }
+        .github-link {
+          font-size: 0.85rem;
+        }
+        .github-link img {
+          width: 20px;
+          height: 20px;
+        }
+      }
     </style>
   </head>
   <body>
@@ -92,6 +130,18 @@
         <p class="post-date">
           <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
         </p>
+      {% endif %}
+      {% if site.showGitHubs %}
+        <div class="github-links">
+          <a href="{{ site.personalGitHub }}" class="github-link" target="_blank" rel="noopener noreferrer">
+            <img src="{{ '/assets/images/github.svg' | relative_url }}" alt="GitHub">
+            <span>Personal GitHub</span>
+          </a>
+          <a href="{{ site.professionalGitHub }}" class="github-link" target="_blank" rel="noopener noreferrer">
+            <img src="{{ '/assets/images/github.svg' | relative_url }}" alt="GitHub">
+            <span>Professional Microsoft GitHub</span>
+          </a>
+        </div>
       {% endif %}
     </header>
 

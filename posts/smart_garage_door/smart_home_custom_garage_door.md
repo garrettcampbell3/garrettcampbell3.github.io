@@ -169,7 +169,7 @@ cover:
       identifiers: "arduino_garage_door_opener"
 ```
 
-As an optional choice, I also defined an explicit *sensor* for the state of the garage door. This allowed me to set up some widgets on my phone. If you're interested in how I set this up, [let me know](https://github.com/gcampbell-msft/website/issues/new)! The *sensor* yaml looked like this: 
+As an optional choice, I also defined an explicit *sensor* for the state of the garage door. This allowed me to set up some widgets on my phone. If you're interested in how I set this up, [let me know](https://github.com/garrettcampbell3/garrettcampbell3.github.io/issues/new)! The *sensor* yaml looked like this: 
 
 ```yaml
 sensor:
@@ -229,7 +229,7 @@ This is where [Tailscale](https://tailscale.com/) comes to the rescue! There is 
 
 Now, when we forget to close the garage door, I can do it from my phone!
 
-If you're interested in the other ways I set up access to HA remotely, such as through my car play, widgets on my home screen on my iPhone, etc, [let me know](https://github.com/gcampbell-msft/website/issues/new)! and I can go into more depth in a separate blog. 
+If you're interested in the other ways I set up access to HA remotely, such as through my car play, widgets on my home screen on my iPhone, etc, [let me know](https://github.com/garrettcampbell3/garrettcampbell3.github.io/issues/new)! and I can go into more depth in a separate blog. 
 
 ## Upgrade to raw C++ with ESP8266_RTOS_SDK
 
@@ -243,7 +243,7 @@ Converting to using raw C++ and this SDK provided a couple of advantages:
 2. Allowed for more use of FreeRTOS and other commonly used libraries across the industry. This can primarily be seen in the use of queues to handle events. 
 3. More event-driven implementation, rather than polling.
 
-Feel free to take a look at the code [here](https://github.com/gcampbell-msft/smart-garage-door-opener)!
+Feel free to take a look at the code [here](https://github.com/garrettcampbell3/smart-garage-door-opener)!
 
 ## Takeaways
 
