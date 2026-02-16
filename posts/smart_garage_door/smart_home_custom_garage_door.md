@@ -15,7 +15,7 @@ This journey started from a desire to set up and host my own smart-home setup, m
 
 To start out this journey, I knew that I needed to first set up *some* type of smart home system. This was a pre-requisite to creating my own custom smart garage door opener, which was where this project started!
 
-Early on, I realized that there were lots of popular open source home automation systems already on the market that I could utilize: [Home Assistant](https://www.home-assistant.io/), [openHAB](https://www.openhab.org/), and more. After a quick comparison, I **decided on Home Assistant**. This decision was largely based on the high-lvel of open source support for it, and the option to host it on a Raspberry Pi, which was a device I'd been wanting to tinker with as well. 
+Early on, I realized that there were lots of popular open source home automation systems already on the market that I could utilize: [Home Assistant](https://www.home-assistant.io/), [openHAB](https://www.openhab.org/), and more. After a quick comparison, I **decided on Home Assistant**. This decision was largely based on the high-level of open source support for it, and the option to host it on a Raspberry Pi, which was a device I'd been wanting to tinker with as well. 
 
 ## Setting up Home Assistant
 
@@ -33,15 +33,15 @@ To start, my self-defined reqiurements were to use a small microcontroller so th
 
 #### Wait, How do you simulate pressing the garage door button?
 
-Every day, before I leave the house, I walk into the garge, press the button on the wall to open the garage door, and then get into my car to leave. BUT, how did that actually work? How did pressing the garage door button **ACTUALLY** make the garage door open? 
+Every day, before I leave the house, I walk into the garage, press the button on the wall to open the garage door, and then get into my car to leave. BUT, how did that actually work? How did pressing the garage door button **ACTUALLY** make the garage door open? 
 
-In short, when you look at how your garage door is set up, you will see some small wires tracking from the garage door button to 2 screws on the garage door. When the button is presses, it closes the circuit and sends a signal to the garage door telling it to start the motor, which will run for a set amount of time, pulling the garage door belt, and therefore opening the door. 
+In short, when you look at how your garage door is set up, you will *likely* see some small wires tracking from the garage door button to 2 screws on the garage door. When the button is pressed, it closes the circuit and sends a signal to the garage door telling it to start the motor, which will run for a set amount of time, pulling the garage door belt, and therefore opening (or closing) the door. 
 
 The key component to simulate here is the closing of the circuit to signal to the motor to start. Thankfully, on my garage door opener, access to the screws mentioned above is easy and therefore we can easily test this theory! 
 
 > NOTE: For those following along, proceed with some caution on the following steps. 
 
-To test this, I simply took a long jumper wire (insulated, of course) and connected it to both screws at the same time. **Just** like that! The garage door began to open! 
+To test this, I simply took a long jumper wire (insulated, of course) and connected it to both screws at the same time. **Just** like that! The garage door began to open!
 
 ### Selecting hardware
 
@@ -57,7 +57,7 @@ At first, I went for the *esp-01* and made some initial progress with it. Howeve
 
 To sense whether the garage door was open or not, I needed some sort of sensor that could mount to the frame of the garage and the garage door to indicate if it was closed. To do this, I found that a [magnetic reed switch](https://www.amazon.com/dp/B0BCYHBKVF?ref_=ppx_hzsearch_conn_dt_b_fed_asin_title_4) would do the trick.
 
-<img src=./ReedSwitch.jpg alt="Reed Switch" width=200>
+<img src="./ReedSwitch.jpg" alt="Reed Switch" width=200>
 
 Sneak peak of the final set-up of the reed switch!
 
@@ -67,7 +67,7 @@ As discussed above, to simulate a button press, we need to close the circuit bet
 
 Here is an image of the terminals that needed to be connected in order to simulate a button press. These terminals were mentioned as well in [this section about how to simulate a button press](#wait-how-do-you-simulate-pressing-the-garage-door-button). Also, the yellow wires are a sneak peak! They are connected to the relay, keep reading!
 
-<img src=./terminals.jpg alt=Terminals width=200>
+<img src="./terminals.jpg" alt="Terminals" width=200>
 
 The two screws on the left are the screws controlling the operation.
 
@@ -90,11 +90,11 @@ The core components that need to be designed are the following:
 3. Triggering simulated button presses
 4. A state machine for the state of the garage door. 
 
-#2 and #3 are relatively simple, as they simply require reading in/writing out digital values from/to digital pins on the micro-controller. Specifically for #3, simulating a button press would involve turning on the relay and quickly (50 ms later) turning off the relay. 
+#2 and #3 are relatively simple, as they simply require reading in/writing out digital values from/to digital pins on the micro-controller. Specifically for #3, simulating a button press would involve turning on the relay and quickly turning off the relay. 
 
 ##### MQTT
 
-For #1, communication from the opener to the HA system, there is theoretically many possibilities. However, I was already familiar with MQTT, which stands for Messaeg Queuing Telemetry Transport. Additionally, because the ESP already has built-in WiFi capabilities, this was a simple protocol to onboard to, and it's commonly used across the industry to communicate between devices. An added plus is that you can set up MQTT brokers and subscribers to require username and password authentication!
+For #1, communication from the opener to the HA system, there is theoretically many possibilities. However, I was already familiar with MQTT, which stands for Message Queuing Telemetry Transport. Additionally, because the ESP already has built-in WiFi capabilities, this was a simple protocol to onboard to, and it's commonly used across the industry to communicate between devices. An added plus is that you can set up MQTT brokers and subscribers to require username and password authentication from within HA!
 
 ##### System State Machine
 
@@ -127,7 +127,7 @@ These are the only external components that we would need to monitor the state o
 
 ### Let's get building!
 
-Now, I was ready to write the code and set up the circuit! As a way to quickly get set up and iteratoe on this project, I started out using Arduino. Arduino already has libraries for MQTT, WiFi, and for general digital pin controls. Also, there was [easy documentation for how to build and flash for the ESP device available online](https://projecthub.arduino.cc/PatelDarshil/getting-started-with-nodemcu-esp8266-on-arduino-ide-b193c3). The libraries I used are the following
+Now, I was ready to write the code and set up the circuit! As a way to quickly get set up and iterate on this project, I started out using Arduino. Arduino already has libraries for MQTT, WiFi, and for general digital pin controls. Also, there was [easy documentation for how to build and flash for the ESP device available online](https://projecthub.arduino.cc/PatelDarshil/getting-started-with-nodemcu-esp8266-on-arduino-ide-b193c3). The libraries I used are the following
 
 - MQTT: [PubSubClient](https://docs.arduino.cc/libraries/pubsubclient/)
 - WiFi: [ESP8266WiFi.h](https://arduino-esp8266.readthedocs.io/en/latest/esp8266wifi/readme.html)
@@ -140,7 +140,7 @@ Thanks to the design work listed above, this work was relatively straight forwar
 
 Now that I had been able to iterate through the state machine with the device set up in my "lab" (my home office), I was ready to integrate the device with Home Assistant! I thought that this would make it much easier to test once I connected the device to the garage, as I would *hopefully* only have to press buttons rather than typing out MQTT commands every time. 
 
-To begin, I read many blogs and channels of people who have integrated MQTT devices with HA. However, I actually found that the [HA documentation](https://www.home-assistant.io/integrations/mqtt) for these kinds of devices proved to be the most helpful.
+To begin, I read many blogs and channels of people who have integrated MQTT devices with HA. However, I found that the [HA documentation](https://www.home-assistant.io/integrations/mqtt) for these kinds of devices proved to be the most helpful.
 
 #### What is "MQTT discovery"? 
 
@@ -148,7 +148,7 @@ The first roadblock that I encountered was understanding what "MQTT discovery" w
 
 #### MQTT YAML
 
-MQTT in HA supports *lots* of different devices, but the one that most closely matches a garage door, is a [cover](https://www.home-assistant.io/integrations/cover.mqtt/). The yaml configuration allows you to specify payloads for the availability of the device, commands to open and close, as well as the state. After some trial and error, I actually ended up with the following yaml to define the *cover*
+MQTT in HA supports *lots* of different devices, but the one that most closely matches a garage door, is a [cover](https://www.home-assistant.io/integrations/cover.mqtt/). The yaml configuration allows you to specify payloads for the availability of the device, commands to open and close, as well as the state. After some trial and error, I ended up with the following yaml to define the *cover*
 
 ```yaml
 cover:
@@ -197,21 +197,21 @@ Now that I had HA setup and had tested the operation of my custom device, it was
 
 ### UH OH! Our first major issue!
 
-After connecting the device to the garage door and confirming it worked, I was giddy with excitement and I went on about my day. The next day, I went on about my normal routine, getting ready for the day, opening the door to the garage, opening the garage door with the garage door button, and getting in my truck. I pulled out of the garage and, as usual, reached up to press the button on my garage door remote to close the door, and..... **nothing happened**. So, I pressed the button again. Still nothing. 
+After connecting the device to the garage door and confirming it worked, I was giddy with excitement and I went on about my day. The next day, I went on about my normal routine, getting ready for the day, opening the door to the garage, opening the garage door with the garage door button, and getting in my truck. I pulled out of the garage and, as usual, reached up to press the button on my garage door remote to close the door, and..... **nothing happened**. So, I pressed the button again. **Still nothing**. 
 
 Uh oh. 
 
-I pulled back into the garage, grabbed my garage door fab, and started testing the garage door fab from various distances away from the garage. I found that the garage door fab was only working when I was inside the garage, or barely outside of it! Well, quite obviously, that's not good.
+I pulled back into the garage, grabbed my garage door fab, and started testing the garage door fab from various distances away from the garage. I found that the garage door fab was only working when I was inside the garage, or barely outside of it. Well, quite obviously, that's not good.
 
 This kicked off what turned into a couple of weeks of a vicious cycle of my mind racing to brainstorm what the issue could be, testing out the garage door, finding that it was still having issues, getting frustrated, ignoring the project for some time, repeat. Could it be EMI (electro-magnetic interference)? RFI (Radio frequency interference)? Could it be a bouncy signal coming from my sensor? A bouncy signal to the relay causing wierd states in the garage door software?
 
-Unfortunately, I had got ridden of some of my hardware such as oscilloscopes and other testing equipment a couple of years ago, so without spending more money, I was stuck in a loop of trial and error that was very frustrating, and I wouldn't recommend to anyone. After much brainstorming, talking with colleagues and friends, and testing, I had a couple of possible solutions, ferrite beads that could hopefully smooth out signals over long cables, relocating the garage door micro-controller farther away from the garage door opener to reduce EMF, etc.
+Unfortunately, I had got ridden of some of my hardware such as oscilloscopes and other testing equipment a couple of years ago, so without spending more money, I was stuck in a loop of trial and error that was very frustrating, and I wouldn't recommend to anyone. After much brainstorming, talking with colleagues and friends, and testing, I had a couple of possible solutions.  I could try ferrite beads that could hopefully smooth out signals over long cables, relocating the garage door micro-controller farther away from the garage door opener to reduce EMF, etc.
 
 #### Resolution
 
 Finally, after having relocated the device to my attic (with long cables to connect to the garage door opener), I had the idea to add a capacitor in parallel with the reed switch. **VOILA!** The garage door remote range returned to normal! I was elated and the garage door could officially be used regularly. 
 
-While I'd love to say that I'm 100% confident in why this solution finally worked, I can't fully say this without having tools to test and confirm. However, I believe that between relocating the device to the attic and adding a capacitor to the long running-cables with the reed switch, I eliminated possible sources of RFI and EMI which returned the range to normal. Additionally, the capacitor reduced possibilies for bouncy signals that could cause innaccuracies in my sensor readings and therefore confusion in the state machine. This is especially likely the answer due to the fact that it is a reed sensor, which inherently creates a magnetic field when the coils are energized. 
+While I'd love to say that I'm 100% confident in why this solution finally worked, I can't fully say this without having tools to test and confirm. However, I believe that between relocating the device to the attic and adding a capacitor to the long running-cables with the reed switch, I eliminated possible sources of RFI and EMI which returned the range to normal. Additionally, the capacitor reduced possibilies for bouncy signals that could cause innaccuracies in my sensor readings and therefore confusion in the state machine. This is especially likely to the fact that it is a reed sensor, which inherently creates a magnetic field when the coils are energized. 
 
 #### Final Schematic
 
@@ -223,13 +223,13 @@ Now that the major issue we ran into is solved, we've arrived at the final schem
 
 This works great, but one of the main reasons I started this project was because we constantly would be pulling out of the neighborhood, and then think, "Did we actually close the garage?". Since HA is, by default, only accessible from the local network, this smart garage system didn't actually help us in this situation. 
 
-There are various options for how to create a remote connection to something like this. I could set up port forwarding, but this may have security risks, there are paid services to host these types of things, but I didn't care to pay anything, or we could find another option.
+There are various options for how to create a remote connection to something like this. I could set up port forwarding, but this may have security risks. There are paid services to host these types of things, but I didn't care to pay anything, or we could find another option.
 
-This is where [Tailscale](https://tailscale.com/) comes to the rescue! There is even [official documentation from Home Assistant](https://www.home-assistant.io/integrations/tailscale/) on how to utilize Tailscale for this purpose. Tailscale allows you to create a VPN that you control, and within this VPN you can add specific devices to allow them to talk to each other. In my case, I wanted to be able to access my Raspberry Pi (where HA is hosted) from both my phone and my wife's phone. The free tier of Tailscale supports up to 3 users and 100 devices (at the time of writing), which allowed me to do exactly what I wanted, which allowed for **remote connection**. 
+This is where [Tailscale](https://tailscale.com/) comes to the rescue! There is even [official documentation from Home Assistant](https://www.home-assistant.io/integrations/tailscale/) on how to utilize Tailscale for this purpose. Tailscale allows you to create a VPN that you control, and within this VPN you can add specific devices to allow them to talk to each other. In my case, I wanted to be able to access my Raspberry Pi (where HA is hosted) from both my phone and my wife's phone. The free tier of Tailscale supports up to 3 users and 100 devices (at the time of writing), which allowed me to do exactly what I wanted. 
 
 Now, when we forget to close the garage door, I can do it from my phone!
 
-If you're interested in the other ways I set up access to HA remotely, such as through my car play, widgets on my home screen on my iPhone, etc, [let me know](https://github.com/garrettcampbell3/garrettcampbell3.github.io/issues/new)! and I can go into more depth in a separate blog. 
+If you're interested in the other ways I set up access to HA remotely, such as through my car play, widgets on my home screen on my iPhone, etc, [let me know](https://github.com/garrettcampbell3/garrettcampbell3.github.io/issues/new)! I can go into more depth in a separate blog. 
 
 ## Upgrade to raw C++ with ESP8266_RTOS_SDK
 
