@@ -117,6 +117,18 @@
       </a>
       <h1 class="project-name">{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
       <h2 class="project-tagline">{{ page.description | default: site.description | default: site.github.project_tagline }}</h2>
+      {% if page.showGitHubs %}
+        <div class="github-links">
+          <a href="{{ page.personalGitHub }}" class="github-link" target="_blank" rel="noopener noreferrer">
+            <img src="{{ '/assets/images/github.svg' | relative_url }}" alt="GitHub">
+            <span>Personal GitHub</span>
+          </a>
+          <a href="{{ page.professionalGitHub }}" class="github-link" target="_blank" rel="noopener noreferrer">
+            <img src="{{ '/assets/images/github.svg' | relative_url }}" alt="GitHub">
+            <span>Professional Microsoft GitHub</span>
+          </a>
+        </div>
+      {% endif %}
       {% if page.projectGitHub %}
         <a href="{{ page.projectGitHub }}" class="btn">View this project on GitHub</a>
       {% elsif site.github.is_project_page %}
@@ -130,18 +142,6 @@
         <p class="post-date">
           <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
         </p>
-      {% endif %}
-      {% if site.showGitHubs %}
-        <div class="github-links">
-          <a href="{{ site.personalGitHub }}" class="github-link" target="_blank" rel="noopener noreferrer">
-            <img src="{{ '/assets/images/github.svg' | relative_url }}" alt="GitHub">
-            <span>Personal GitHub</span>
-          </a>
-          <a href="{{ site.professionalGitHub }}" class="github-link" target="_blank" rel="noopener noreferrer">
-            <img src="{{ '/assets/images/github.svg' | relative_url }}" alt="GitHub">
-            <span>Professional Microsoft GitHub</span>
-          </a>
-        </div>
       {% endif %}
     </header>
 
