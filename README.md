@@ -1,3 +1,13 @@
+---
+layout: default
+title:
+description: 
+permalink: /
+showGitHubs: true
+personalGitHub: https://github.com/garrettcampbell3
+professionalGitHub: https://github.com/gcampbell-msft
+---
+
 Check out my projects!
 
 ## [Project #1: Smart Garage Door](./posts/smart_garage_door/smart_home_custom_garage_door.md) 
