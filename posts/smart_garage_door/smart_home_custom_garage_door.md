@@ -57,7 +57,7 @@ At first, I went for the *esp-01* and made some initial progress with it. Howeve
 
 To sense whether the garage door was open or not, I needed some sort of sensor that could mount to the frame of the garage and the garage door to indicate if it was closed. To do this, I found that a [magnetic reed switch](https://www.amazon.com/dp/B0BCYHBKVF?ref_=ppx_hzsearch_conn_dt_b_fed_asin_title_4) would do the trick.
 
-<img src="./ReedSwitch.jpg" alt="Reed Switch" width=200>
+![ReedSwitch](./ReedSwitch.png)
 
 Sneak peak of the final set-up of the reed switch!
 
@@ -67,7 +67,7 @@ As discussed above, to simulate a button press, we need to close the circuit bet
 
 Here is an image of the terminals that needed to be connected in order to simulate a button press. These terminals were mentioned as well in [this section about how to simulate a button press](#wait-how-do-you-simulate-pressing-the-garage-door-button). Also, the yellow wires are a sneak peak! They are connected to the relay, keep reading!
 
-<img src="./terminals.jpg" alt="Terminals" width=200>
+![Terminals](./terminals.png)
 
 The two screws on the left are the screws controlling the operation.
 
