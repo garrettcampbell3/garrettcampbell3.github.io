@@ -57,7 +57,7 @@ At first, I went for the *esp-01* and made some initial progress with it. Howeve
 
 To sense whether the garage door was open or not, I needed some sort of sensor that could mount to the frame of the garage and the garage door to indicate if it was closed. To do this, I found that a [magnetic reed switch](https://www.amazon.com/dp/B0BCYHBKVF?ref_=ppx_hzsearch_conn_dt_b_fed_asin_title_4) would do the trick.
 
-![ReedSwitch](./ReedSwitch.png)
+![ReedSwitch](./ReedSwitch.png){: width="300" }
 
 Sneak peak of the final set-up of the reed switch!
 
@@ -67,7 +67,7 @@ As discussed above, to simulate a button press, we need to close the circuit bet
 
 Here is an image of the terminals that needed to be connected in order to simulate a button press. These terminals were mentioned as well in [this section about how to simulate a button press](#wait-how-do-you-simulate-pressing-the-garage-door-button). Also, the yellow wires are a sneak peak! They are connected to the relay, keep reading!
 
-![Terminals](./terminals.png)
+![Terminals](./terminals.png){: width="300" }
 
 The two screws on the left are the screws controlling the operation.
 
@@ -110,7 +110,7 @@ Some of them are self-explanatory, but some are not. For example, when would the
 
 Below is a diagram of the entire state machine.
 
-![State machine](./GarageDoorStateMachine.png)
+![State machine](./GarageDoorStateMachine.png){: width="500" }
 
 #### Circuit design
 
@@ -191,7 +191,7 @@ sensor:
 
 After setting these up, I was able to see them in the HA UI!
 
-![Garage Door Cover Home Assistant](./GarageDoorCoverHA.png) 
+![Garage Door Cover Home Assistant](./GarageDoorCoverHA.png){: width="300" }
 
 Now that I had HA setup and had tested the operation of my custom device, it was time to hook it up to the garage door. While it took some time and I had to purchase some longer wire, within a couple of days I got the device connected and was able to test that it did, in fact, open and read the state of the garage door, pretty exciting stuff at this point!
 
@@ -217,7 +217,7 @@ While I'd love to say that I'm 100% confident in why this solution finally worke
 
 Now that the major issue we ran into is solved, we've arrived at the final schematic!
 
-![schematic](schematic.png)
+![schematic](schematic.png){: width="500" }
 
 ### How could I access HA remotely? 
 

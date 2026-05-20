@@ -20,7 +20,7 @@ The printer I decided on was the [Bambu Lab P2S Combo](https://us.store.bambulab
 
 > I'd highly recommend getting the combo, as it includes the [AMS 2 Pro](https://us.store.bambulab.com/products/ams-2-pro), which makes loading multiple filaments, auto-loading & auto-switching of colors during printing, **MUCH** easier.
 
-![3D printer](./3D_printer.jpeg){:width="250"}
+![3D printer](./3D_printer.jpeg){: width="250" }
 
 ### What about filaments? 
 
@@ -50,7 +50,7 @@ To get more familiar with the printing process, as well as what 3D models are al
 
 For example, here is a quick collage of some prints I completed, all from online models available in the Bambu Lab models marketplace! Some of these were even printed from my phone, as the Bambu printer supports connecting your phone via the **Bambu Handy** app. This app lets you start print jobs, watch the print live from your phone, and more!
 
-[![Bag clips](./3D_Print_Clips.jpeg)](https://makerworld.com/en/models/708853-the-ultimate-3d-printed-clip#profileId-639113) [![Frog](./3D_Print_Frog.jpeg)](https://makerworld.com/en/models/1341954-mini-frog-cute#profileId-1382634) [![Vase](./3D_Print_Vase.jpeg)](https://makerworld.com/en/models/1626301-the-cleopatra-vase-a-botany-chic-creation-deco#profileId-1717155) [![Poop schute](./3D_Print_PoopSchute.jpeg)](https://makerworld.com/en/models/1674903-bambu-x2d-p1s-p2s-x1c-p1p-poop-chute-slide#profileId-1773756) [![Cable management](./3D_Print_Cables.jpeg)](https://makerworld.com/en/models/2410347-5-grams-cable-clip#profileId-2642769)
+[![Bag clips](./3D_Print_Clips.jpeg){: width="200" }](https://makerworld.com/en/models/708853-the-ultimate-3d-printed-clip#profileId-639113) [![Frog](./3D_Print_Frog.jpeg){: width="200" }](https://makerworld.com/en/models/1341954-mini-frog-cute#profileId-1382634) [![Vase](./3D_Print_Vase.jpeg){: width="200" }](https://makerworld.com/en/models/1626301-the-cleopatra-vase-a-botany-chic-creation-deco#profileId-1717155) [![Poop schute](./3D_Print_PoopSchute.jpeg){: width="200" }](https://makerworld.com/en/models/1674903-bambu-x2d-p1s-p2s-x1c-p1p-poop-chute-slide#profileId-1773756) [![Cable management](./3D_Print_Cables.jpeg){: width="200" }](https://makerworld.com/en/models/2410347-5-grams-cable-clip#profileId-2642769)
 
 I've also printed many other online models that I don't have pictured here. Things like a dog poop bag dispenser, belt hangers, organization for kitchen drawers, and cable management prints. 
 
@@ -68,7 +68,7 @@ In addition to many of the online 3D prints that I've show above, I've also cust
 
 > NOTE: Unfortunately, I forgot to take pictures of some of the printed models before using them or giving them to friends, so some pictures below are from the model in Autodesk Fusion.
 
-![Supplement Container](./3D_Supplement_Container.jpeg) ![Lug spacer](./3D_LugSpacer.png) ![Smart garage door opener housing](./3D_SmartGarageOpenerHousing.png) ![Staunton Tractor](./3D_Staunton_Tractor.JPG)
+![Supplement Container](./3D_Supplement_Container.jpeg){: width="200" } ![Lug spacer](./3D_LugSpacer.png){: width="200" } ![Smart garage door opener housing](./3D_SmartGarageOpenerHousing.png){: width="200" } ![Staunton Tractor](./3D_Staunton_Tractor.JPG){: width="200" }
 
 ## Try it out!
 
