@@ -9,3 +9,4 @@ description: Hosting personal project blogs and more!
 show_downloads: false
 
 profile_image: /assets/images/profile.jpg
+markdown: kramdown
