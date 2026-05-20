@@ -20,7 +20,7 @@ The printer I decided on was the [Bambu Lab P2S Combo](https://us.store.bambulab
 
 > I'd highly recommend getting the combo, as it includes the [AMS 2 Pro](https://us.store.bambulab.com/products/ams-2-pro), which makes loading multiple filaments, auto-loading & auto-switching of colors during printing, **MUCH** easier.
 
-<img src="./3D_printer.jpeg" alt="3D printer" style="width:200px;"/>
+![3D printer](./3d_printer.jpeg){: width="250"}
 
 ### What about filaments? 
 
