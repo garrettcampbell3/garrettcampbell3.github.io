@@ -3,9 +3,7 @@ layout: default
 title: About me!
 description: 
 permalink: /about/
-showGitHubs: true
-personalGitHub: https://github.com/garrettcampbell3
-professionalGitHub: https://github.com/gcampbell-msft
+showProfileLinks: true
 ---
 
 My name is Garrett Campbell and I'm a Senior Software Engineer! I really enjoy doing all things related to technology. I especially love to learn new technologies and build cool things! I've worked on developer tools, embedded software, simulators, and more. However, I find just about anything interesting and hope to showcase that in this blog. 

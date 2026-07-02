@@ -3,9 +3,7 @@ layout: default
 title:
 description: 
 permalink: /
-showGitHubs: true
-personalGitHub: https://github.com/garrettcampbell3
-professionalGitHub: https://github.com/gcampbell-msft
+showProfileLinks: true
 ---
 
 Check out my projects!
